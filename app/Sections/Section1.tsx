@@ -7,12 +7,21 @@ import logo from '@/app/Assets/logo.png';
 export const Section1 = ({ scenario }) => {
     const buttonText = scenario === "Job Seekers" ? "Sign Up" : "Get Started!";
 
+    const handleScrollToSection8 = () => {
+        if (scenario === "Job Seekers") {
+            document.getElementById("section8")?.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className='h-screen bg-primary py-4 px-4 md:px-6 lg:px-10'>
             {/* Header */}
             <div className='flex justify-between items-center'>
                 <Image src={logo} alt='logo' className='w-[75px] h-auto md:w-[90px] lg:w-[105px]'/>
-                <button className='bg-secondary text-primary font-bold px-6 py-2 text-sm md:px-8 md:py-3 md:text-base lg:px-10 lg:py-4 lg:text-lg rounded-lg'>
+                <button 
+                    onClick={handleScrollToSection8}
+                    className='bg-secondary text-primary font-bold px-6 py-2 text-sm md:px-8 md:py-3 md:text-base lg:px-10 lg:py-4 lg:text-lg rounded-lg'
+                >
                     {buttonText}
                 </button>
             </div>
@@ -24,7 +33,10 @@ export const Section1 = ({ scenario }) => {
                     <div className='text-base md:text-lg lg:text-xl text-gray-400'>
                         Our AI-powered platform is designed to simplify and optimize every step of your recruitment journey.
                     </div>
-                    <button className='bg-secondary text-primary font-bold px-6 py-2 mt-10 text-sm md:px-8 md:py-3 md:text-base lg:px-10 lg:py-4 lg:text-lg rounded-lg'>
+                    <button 
+                        onClick={handleScrollToSection8}
+                        className='bg-secondary text-primary font-bold px-6 py-2 mt-10 text-sm md:px-8 md:py-3 md:text-base lg:px-10 lg:py-4 lg:text-lg rounded-lg'
+                    >
                         {buttonText}
                     </button>
                     {/* Adding Last back */}
@@ -47,7 +59,7 @@ function Last() {
             <Section t1={"7k+"} t2={""} t3={"Trusted by leading companies"} />
         </div>
     );
-};
+}
 
 function Section(props: { t1: string, t2: string, t3: string }) {
     return (
