@@ -1,5 +1,5 @@
 import React from 'react';
-import Image, { StaticImageData } from 'next/image'; // Import StaticImageData type
+import Image, { StaticImageData } from 'next/image';
 import jobSeekerLogo from '@/app/Assets/job_seeker.png';
 import companyButtonLogo from '@/app/Assets/company_button_logo.png';
 import jobSeekerLogo1 from '@/app/Assets/job_seekers_1.png';
@@ -87,7 +87,16 @@ function Col(props: { title: string, desc: string, logo?: StaticImageData }) {
     return (
         <div className='w-full flex flex-col items-center lg:items-start bg-white p-4 rounded-lg shadow-md'>
             <div className='w-16 h-16 md:w-20 md:h-20 bg-primary rounded-full mb-4 flex items-center justify-center'>
-                {props.logo && <Image src={props.logo} alt={props.title} width={56} height={56} />}  {/* Adjust size here */}
+                {props.logo && (
+                    <>
+                        <div className="block lg:hidden">
+                            <Image src={props.logo} alt={props.title} width={40} height={40} />  {/* Smaller logo size */}
+                        </div>
+                        <div className="hidden lg:block">
+                            <Image src={props.logo} alt={props.title} width={60} height={60} />  {/* Larger logo size for larger screens */}
+                        </div>
+                    </>
+                )}
             </div>
             <div className='font-bold text-center lg:text-left w-full text-lg'>
                 {props.title}
