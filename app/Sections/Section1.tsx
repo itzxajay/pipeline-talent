@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import React from 'react';
 import logo from '@/app/Assets/logo.png';
-import { Section3 } from './Section3';
 
 export const Section1 = ({ scenario }) => {
     const buttonText = scenario === "Job Seekers" ? "Sign Up" : "Get Started!";
@@ -28,6 +27,7 @@ export const Section1 = ({ scenario }) => {
                     <button className='bg-secondary text-primary font-bold px-6 py-2 mt-10 text-sm md:px-8 md:py-3 md:text-base lg:px-10 lg:py-4 lg:text-lg rounded-lg'>
                         {buttonText}
                     </button>
+                    {/* Adding Last back */}
                     <Last />
                 </div>
                 {/* Right (Empty for now) */}
@@ -41,8 +41,8 @@ function Last() {
     return (
         <div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 p-4 mt-3 lg:mt-3 sm:mt-3 xl:mt-14'>
             <Section t1={"4.5"} t2={"/5"} t3={"Value rated from the TrustPilot"} />
-            
-            <div className='h-[1px] md:h-full w-full md:w-[1px] bg-gray-400 justify-self-center my-4 md:my-0'></div>
+
+            <div className='h-[1px] md:h-full w-full md:w-[1px] bg-gray-400 justify-self-center my-4 md:my-0'> </div>
 
             <Section t1={"7k+"} t2={""} t3={"Trusted by leading companies"} />
         </div>
@@ -59,4 +59,4 @@ function Section(props: { t1: string, t2: string, t3: string }) {
             <div className='text-sm text-gray-400 mt-1'>{props.t3}</div>
         </div>
     );
-}
+};
