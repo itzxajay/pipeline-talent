@@ -1,15 +1,20 @@
-import Image from 'next/image'
-import React from 'react'
-import logo from '@/app/Assets/logo.png'
+"use client"; // This line marks the component as a Client Component
 
-export const Section1 = () => {
+import Image from 'next/image';
+import React from 'react';
+import logo from '@/app/Assets/logo.png';
+import { Section3 } from './Section3';
+
+export const Section1 = ({ scenario }) => {
+    const buttonText = scenario === "Job Seekers" ? "Sign Up" : "Get Started!";
+
     return (
         <div className='h-screen bg-primary py-4 px-4 md:px-6 lg:px-10'>
             {/* Header */}
             <div className='flex justify-between items-center'>
                 <Image src={logo} alt='logo' className='w-[75px] h-auto md:w-[90px] lg:w-[105px]'/>
                 <button className='bg-secondary text-primary font-bold px-6 py-2 text-sm md:px-8 md:py-3 md:text-base lg:px-10 lg:py-4 lg:text-lg rounded-lg'>
-                    Get Started!
+                    {buttonText}
                 </button>
             </div>
             <div className='mt-16 flex flex-col lg:flex-row lg:justify-between'>
@@ -21,7 +26,7 @@ export const Section1 = () => {
                         Our AI-powered platform is designed to simplify and optimize every step of your recruitment journey.
                     </div>
                     <button className='bg-secondary text-primary font-bold px-6 py-2 mt-10 text-sm md:px-8 md:py-3 md:text-base lg:px-10 lg:py-4 lg:text-lg rounded-lg'>
-                        Get Started!
+                        {buttonText}
                     </button>
                     <Last />
                 </div>
@@ -29,14 +34,13 @@ export const Section1 = () => {
                 <div className='w-full mt-10 lg:mt-0'></div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 function Last() {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 p-4 mt-3 lg:mt-3 sm:mt-3 xl:mt-14'> {/* Applied mt-3 and mt-14 for larger screens */}
+        <div className='grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16 p-4 mt-3 lg:mt-3 sm:mt-3 xl:mt-14'>
             <Section t1={"4.5"} t2={"/5"} t3={"Value rated from the TrustPilot"} />
-
             
             <div className='h-[1px] md:h-full w-full md:w-[1px] bg-gray-400 justify-self-center my-4 md:my-0'></div>
 
@@ -56,5 +60,3 @@ function Section(props: { t1: string, t2: string, t3: string }) {
         </div>
     );
 }
-
-
