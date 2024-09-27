@@ -47,7 +47,7 @@ function Last() {
             <Section t1={"7k+"} t2={""} t3={"Trusted by leading companies"} />
         </div>
     );
-}
+};
 
 function Section(props: { t1: string, t2: string, t3: string }) {
     return (
