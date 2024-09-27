@@ -13,8 +13,8 @@ export const Section8 = () => {
                     </div>
                     <div className='w-[150px] bg-white h-[80px] rounded-xl flex items-center justify-center font-bold'>
                         <div className='flex flex-col text-center'>
-                            <div className='text-sm'>Download on the</div>
-                            <div>App Store</div>
+                            <div className='text-sm'>Join Our Waiting</div>
+                            <div>List Now!</div>
                         </div>
                     </div>
                 </div>
