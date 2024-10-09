@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Section4And5Header } from './Section4';
+import Image from 'next/image'; 
+import faqRecruiter from '@/app/Assets/faq_r.png'; // Recruiter image
 
 export const Section5 = () => {
     return (
@@ -10,9 +11,30 @@ export const Section5 = () => {
     );
 };
 
+export function Section4And5Header(props: { title: string, slogan: string }) {
+    return (
+        <div className='w-full'>
+            <div className='w-full text-2xl md:text-3xl lg:text-3xl font-bold pb-4'>{props.title}</div> {/* Reduced Title Size */}
+            <div className='w-full text-base md:text-lg lg:text-lg'>
+                {props.slogan}
+            </div>
+        </div>
+    );
+}
+
 export function Section() {
     return (
         <div className='flex flex-col md:flex-row justify-center items-center pt-10 md:pt-20'>
+            {/* Left Section (Recruiter App Image) */}
+            <div className='w-full md:w-1/2 flex justify-center mb-4 md:mb-6'> {/* Added margin-bottom */}
+                <Image 
+                    src={faqRecruiter} 
+                    alt="Recruiter App Image" 
+                    className='w-[150px] md:w-[250px]' // Smaller image size
+                />
+            </div>
+
+            {/* Right Section (FAQ Text) */}
             <div className='w-full md:w-1/2'>
                 <FAQ 
                     ques={"Efficient Candidate Management"} 
@@ -26,9 +48,6 @@ export function Section() {
                     ques={"Data-Driven Decision Making"} 
                     ans={"Make informed hiring decisions backed by powerful analytics and data insights. Our app provides real-time metrics and predictive analytics to optimize your recruitment strategy."} 
                 />
-            </div>
-            <div className='w-full md:w-1/2'>
-                {/* Additional content can be added here */}
             </div>
         </div>
     );
@@ -44,7 +63,7 @@ export function FAQ(props: { ques: string, ans: string }) {
     return (
         <div className='flex flex-col text-start gap-4 pb-4'>
             <div 
-                className='font-bold cursor-pointer flex justify-between items-center'
+                className='text-lg md:text-xl lg:text-xl font-bold cursor-pointer flex justify-between items-center'
                 onClick={toggleOpen}
             >
                 {props.ques}
@@ -53,7 +72,7 @@ export function FAQ(props: { ques: string, ans: string }) {
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5"
+                        className="h-6 w-6"
                         viewBox="0 0 20 20"
                         fill="currentColor"
                     >
@@ -66,7 +85,7 @@ export function FAQ(props: { ques: string, ans: string }) {
                 </span>
             </div>
             {isOpen && (
-                <div className='text-sm text-primary'>
+                <div className='text-base md:text-lg lg:text-lg'>
                     {props.ans}
                 </div>
             )}
